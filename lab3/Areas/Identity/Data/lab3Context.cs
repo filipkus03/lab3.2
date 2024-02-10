@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using lab3.Models;
 
 namespace lab3.Data;
 
@@ -28,4 +29,6 @@ public class lab3Context : IdentityDbContext<lab3User>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+
+public DbSet<lab3.Models.kontrola> kontrola { get; set; } = default!;
 }
