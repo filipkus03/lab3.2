@@ -4,56 +4,83 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<style>
+    body {
+        background-image: url('ścieżka/do/tła.jpg'); /* Zmień na właściwą ścieżkę do swojego obrazu tła */
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.To)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateTime)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fom)
-            </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.To)
-                </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTime)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    th {
+        background-color: #343a40;
+        color: #ffffff;
+    }
+
+    tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .btn-actions {
+        display: flex;
+        justify-content: space-around;
+    }
+
+        .btn-actions a {
+            margin: 0 5px;
+        }
+</style>
+
+<div class="container">
+    <h1 class="display-4">Lista Kontroli Lotów</h1>
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Dodaj nową kontrolę</a>
+    </p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.Fom)</th>
+                    <th>@Html.DisplayNameFor(model => model.To)</th>
+                    <th>@Html.DisplayNameFor(model => model.DateTime)</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Fom)</td>
+                        <td>@Html.DisplayFor(modelItem => item.To)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateTime)</td>
+                        <td class="btn-actions">
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
