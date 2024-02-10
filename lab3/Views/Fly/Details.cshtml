@@ -1,4 +1,4 @@
-﻿@model lab3.Models.kontrola
+﻿@model lab3.Models.fly
 
 @{
     ViewData["Title"] = "Details";
@@ -7,7 +7,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>kontrola</h4>
+    <h4>fly</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -23,22 +23,22 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fom)
+            @Html.DisplayNameFor(model => model.From)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fom)
+            @Html.DisplayFor(model => model.From)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.To)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.To)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateTime)
+            @Html.DisplayNameFor(model => model.Pilot)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateTime)
+            @Html.DisplayFor(model => model.Pilot)
         </dd>
     </dl>
 </div>

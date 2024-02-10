@@ -31,4 +31,6 @@ public class lab3Context : IdentityDbContext<lab3User>
     }
 
 public DbSet<lab3.Models.kontrola> kontrola { get; set; } = default!;
+
+public DbSet<lab3.Models.fly> fly { get; set; } = default!;
 }

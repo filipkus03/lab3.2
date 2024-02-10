@@ -1,10 +1,10 @@
-﻿@model IEnumerable<lab3.Models.kontrola>
+﻿@model IEnumerable<lab3.Models.fly>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Pracownicze Informacje Lotnicze</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,13 +19,13 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fom)
+                @Html.DisplayNameFor(model => model.From)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.To)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateTime)
+                @Html.DisplayNameFor(model => model.Pilot)
             </th>
             <th></th>
         </tr>
@@ -40,13 +40,13 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Fom)
+                @Html.DisplayFor(modelItem => item.From)
             </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.To)
-                </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateTime)
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pilot)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

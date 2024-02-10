@@ -32,5 +32,5 @@ app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Kontrola}/{action=Index}/{id?}");
-
+    
 app.Run();

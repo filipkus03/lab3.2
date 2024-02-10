@@ -1,4 +1,4 @@
-﻿@model lab3.Models.kontrola
+﻿@model lab3.Models.fly
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,7 +6,7 @@
 
 <h1>Edit</h1>
 
-<h4>kontrola</h4>
+<h4>fly</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,9 +24,9 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Fom" class="control-label"></label>
-                <input asp-for="Fom" class="form-control" />
-                <span asp-validation-for="Fom" class="text-danger"></span>
+                <label asp-for="From" class="control-label"></label>
+                <input asp-for="From" class="form-control" />
+                <span asp-validation-for="From" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="To" class="control-label"></label>
@@ -34,9 +34,9 @@
                 <span asp-validation-for="To" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DateTime" class="control-label"></label>
-                <input asp-for="DateTime" class="form-control" />
-                <span asp-validation-for="DateTime" class="text-danger"></span>
+                <label asp-for="Pilot" class="control-label"></label>
+                <input asp-for="Pilot" class="form-control" />
+                <span asp-validation-for="Pilot" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

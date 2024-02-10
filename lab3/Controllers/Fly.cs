@@ -4,57 +4,56 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace lab3.Controllers
 {
-    public class Kontrola : Controller
+    public class Fly : Controller
     {
-        private static IList<kontrola> Lista = new List<kontrola>()
+        private static readonly IList<fly> flies = new List<fly>
         {
-            new kontrola() {Id = 1, Name = "Lot AirCraft", Description = "Tanie Loty", Fom = "Cracow",To = "France", DateTime = "2024/04/12 12,16" }
+            new fly() {Id = 1,Name = "Lot",Description = "Lot jak lot", From = "Cracow", To = "Niewiem", Pilot = "Jurek"}
         };
-
-        // GET: Kontrola
+        // GET: Fly
         public ActionResult Index()
         {
-            return View(Lista);
+            return View(flies);
         }
 
-        // GET: Kontrola/Details/5
+        // GET: Fly/Details/5
         public ActionResult Details(int id)
         {
-            return View(Lista.FirstOrDefault(x=>x.Id==id));
+            return View(flies.FirstOrDefault(x => x.Id == id));
         }
 
-        // GET: Kontrola/Create
+        // GET: Fly/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Kontrola/Create
+        // POST: Fly/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(kontrola lista)
+        public ActionResult Create(fly lista)
         {
-            lista.Id = Lista.Count + 1;
-            Lista.Add(lista);
+            lista.Id = flies.Count + 1;
+            flies.Add(lista);
             return RedirectToAction();
         }
 
-        // GET: Kontrola/Edit/5
+        // GET: Fly/Edit/5
         public ActionResult Edit(int id)
         {
-            var modelToEdit = Lista.FirstOrDefault(x => x.Id == id);
+            var modelToEdit = flies.FirstOrDefault(x => x.Id == id);
             return View(modelToEdit);
 
         }
 
-        // POST: Kontrola/Edit/5
+        // POST: Fly/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, kontrola editedModel)
         {
             try
             {
-                var modelToEdit = Lista.FirstOrDefault(x => x.Id == id);
+                var modelToEdit = flies.FirstOrDefault(x => x.Id == id);
 
                 if (modelToEdit != null)
                 {
@@ -74,25 +73,25 @@ namespace lab3.Controllers
             }
         }
 
-        // GET: Kontrola/Delete/5
+        // GET: Fly/Delete/5
         public ActionResult Delete(int id)
         {
-            var modelToDelete = Lista.FirstOrDefault(x => x.Id == id);
+            var modelToDelete = flies.FirstOrDefault(x => x.Id == id);
             return View(modelToDelete);
         }
 
-        // POST: Kontrola/Delete/5
+        // POST: Fly/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
             try
             {
-                var modelToDelete = Lista.FirstOrDefault(x => x.Id == id);
+                var modelToDelete = flies.FirstOrDefault(x => x.Id == id);
 
                 if (modelToDelete != null)
                 {
-                    Lista.Remove(modelToDelete);
+                    flies.Remove(modelToDelete);
                     return RedirectToAction(nameof(Index));
                 }
 
