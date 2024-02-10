@@ -1,51 +1,8 @@
 ﻿@model IEnumerable<lab3.Models.kontrola>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista Kontroli Lotów";
 }
-
-<style>
-    body {
-        background-image: url('ścieżka/do/tła.jpg'); /* Zmień na właściwą ścieżkę do swojego obrazu tła */
-        background-size: cover;
-        background-position: center;
-        min-height: 100vh;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .container {
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 10px;
-        padding: 20px;
-        margin-top: 20px;
-    }
-
-    h1 {
-        text-align: center;
-        color: #333;
-    }
-
-    th {
-        background-color: #343a40;
-        color: #ffffff;
-    }
-
-    tbody tr:hover {
-        background-color: #f8f9fa;
-    }
-
-    .btn-actions {
-        display: flex;
-        justify-content: space-around;
-    }
-
-        .btn-actions a {
-            margin: 0 5px;
-        }
-</style>
 
 <div class="container">
     <h1 class="display-4">Lista Kontroli Lotów</h1>
@@ -73,10 +30,12 @@
                         <td>@Html.DisplayFor(modelItem => item.Fom)</td>
                         <td>@Html.DisplayFor(modelItem => item.To)</td>
                         <td>@Html.DisplayFor(modelItem => item.DateTime)</td>
-                        <td class="btn-actions">
-                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
-                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
-                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Akcje">
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                            </div>
                         </td>
                     </tr>
                 }
